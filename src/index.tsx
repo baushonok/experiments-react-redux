@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Navigation from 'navigation';
+import Transformations from 'transformations';
 
 import './index.css';
 
 class App extends Component {
   public render() {
     return (
-      <div>
-        <h1>Hello, world!</h1>
-      </div>
+      <Router>
+        <Navigation />
+        <Switch>
+          <Route path="/transformations" component={Transformations} />
+        </Switch>
+      </Router>
     );
   }
 }
