@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Form from 'form';
 import Home from 'home';
 import Navigation from 'navigation';
 import Transformations from 'transformations';
@@ -15,6 +16,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/transformations" component={Transformations} />
+        <Route path="/form" component={Form} />
       </Switch>
     </Router>
   );

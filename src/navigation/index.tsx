@@ -5,13 +5,16 @@ import './index.css';
 
 export default function Navigation() {
   return (
-    <nav>
+    <nav className="navigation">
       <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/transformations">Transformations</Link>
+        </li>
+        <li>
+          <Link to="/form">Form</Link>
         </li>
       </ul>
     </nav>
