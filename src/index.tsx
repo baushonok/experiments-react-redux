@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Home from 'home';
 import Navigation from 'navigation';
 import Transformations from 'transformations';
 
 import './index.css';
 
-class App extends Component {
-  public render() {
-    return (
-      <Router>
-        <Navigation />
-        <Switch>
-          <Route path="/transformations" component={Transformations} />
-        </Switch>
-      </Router>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Router>
+      <Navigation />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/transformations" component={Transformations} />
+      </Switch>
+    </Router>
+  );
+};
 
 const container = document.getElementById('root');
 if (!container) {
