@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Comments from 'comments';
 import Form from 'form';
 import Home from 'home';
 import Navigation from 'navigation';
@@ -17,6 +18,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route path="/transformations" component={Transformations} />
         <Route path="/form" component={Form} />
+        <Route path="/comments" component={Comments} />
       </Switch>
     </Router>
   );
