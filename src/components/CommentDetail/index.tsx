@@ -4,27 +4,27 @@ interface IProps {
   avatarSrc: string;
   content: string;
   date: Date;
-  name: string;
+  authorName: string;
 }
 
-export default class Comment extends Component<IProps> {
+export default class CommentDetail extends Component<IProps> {
   public render() {
-    const { avatarSrc, content, date, name } = this.props;
+    const { avatarSrc, content, date, authorName } = this.props;
     return (
-      <>
+      <div className="comment">
         <a href="/" className="avatar">
           <img alt="avatar" src={avatarSrc} />
         </a>
         <section className="content">
           <a href="/" className="author">
-            {name}
+            {authorName}
           </a>
           <span className="metadata">
             <time className="date">{date.toLocaleDateString()}</time>
           </span>
           <p className="text">{content}</p>
         </section>
-      </>
+      </div>
     );
   }
 }

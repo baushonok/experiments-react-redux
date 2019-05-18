@@ -1,8 +1,9 @@
-import React, { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, Component, MouseEvent } from 'react';
 
 import faker from 'faker';
 
-import Comment from 'components/Comment';
+import ApprovalCard from 'components/ApprovalCard';
+import CommentDetail from 'components/CommentDetail';
 
 interface IState {
   amountOfComments: number;
@@ -34,18 +35,22 @@ export default class Comments extends Component<{}, IState> {
   private handleChangeAmountOfComments = (event: ChangeEvent<HTMLInputElement>) => {
     this.setState({ amountOfComments: parseInt(event.currentTarget.value, 10) });
   };
+  private handleApprove = (event: MouseEvent<HTMLButtonElement>) => {};
+  private handleReject = (event: MouseEvent<HTMLButtonElement>) => {};
   private generateComments = () => {
     const { amountOfComments: amount } = this.state;
     const rows = [];
     for (let i = 0; i < amount; i++) {
       rows.push(
-        <li className="comment">
-          <Comment
-            avatarSrc={faker.image.avatar()}
-            content={faker.lorem.sentence()}
-            date={faker.date.past()}
-            name={faker.name.firstName()}
-          />
+        <li className="comment" key={i}>
+          <ApprovalCard onApprove={this.handleApprove} onReject={this.handleReject}>
+            <CommentDetail
+              avatarSrc={faker.image.avatar()}
+              content={faker.lorem.sentence(3, 12)}
+              date={faker.date.past()}
+              authorName={faker.name.firstName()}
+            />
+          </ApprovalCard>
         </li>,
       );
     }
