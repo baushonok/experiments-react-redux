@@ -19,6 +19,9 @@ export default function Navigation() {
         <li>
           <Link to="/comments">Comments</Link>
         </li>
+        <li>
+          <Link to="/seasons">Seasons</Link>
+        </li>
       </ul>
     </nav>
   );
