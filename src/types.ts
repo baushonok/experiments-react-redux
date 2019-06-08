@@ -1,3 +1,4 @@
 export interface IState {
-  userLocation?: Position;
+  lat?: number;
+  errorMessage: string;
 }

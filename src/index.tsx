@@ -16,7 +16,7 @@ import './index.css';
 class App extends Component<{}, IState> {
   constructor(props: {}) {
     super(props);
-    this.state = {};
+    this.state = { errorMessage: '' };
     this.initUserGeolocation();
   }
   public render() {
@@ -34,16 +34,16 @@ class App extends Component<{}, IState> {
     );
   }
   private getSeasonsComponent = () => {
-    const { userLocation } = this.state;
-    return <Seasons location={userLocation} />;
+    const { errorMessage, lat } = this.state;
+    return <Seasons errorMessage={errorMessage} lat={lat} />;
   };
   private initUserGeolocation() {
     window.navigator.geolocation.getCurrentPosition(
       (position: Position) => {
-        this.setState({ userLocation: position });
+        this.setState({ lat: position.coords.latitude, errorMessage: '' });
       },
       (err: PositionError) => {
-        this.setState({ userLocation: undefined });
+        this.setState({ lat: undefined, errorMessage: err.message });
       },
     );
   }

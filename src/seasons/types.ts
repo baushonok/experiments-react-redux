@@ -1,3 +1,4 @@
 export interface IProps {
-  location?: Position;
+  lat?: number;
+  errorMessage: string;
 }

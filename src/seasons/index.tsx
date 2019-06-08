@@ -4,18 +4,15 @@ import { IProps } from './types';
 
 export default class Seasons extends Component<IProps> {
   public render() {
+    const { errorMessage, lat } = this.props;
+
     return (
       <>
         <h2>Seasons</h2>
-        {this.renderLocation()}
+        <div>{errorMessage ? this.renderErrorMessage(errorMessage) : this.renderLatitudeMessage(lat)}</div>
       </>
     );
   }
-  private renderLocation = () => {
-    const { location } = this.props;
-    if (!location || !location.coords) {
-      return null;
-    }
-    return <div>Latitude: {location.coords.latitude}</div>;
-  };
+  private renderErrorMessage = (message: string) => `Error: ${message}`;
+  private renderLatitudeMessage = (lat?: number) => `Latitude: ${lat}`;
 }
