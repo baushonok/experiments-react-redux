@@ -6,7 +6,7 @@ import './index.css';
 
 export default class Seasons extends Component<IProps> {
   public render() {
-    const { errorMessage, lat } = this.props;
+    const { errorMessage, lat = null } = this.props;
 
     return (
       <>
@@ -16,5 +16,5 @@ export default class Seasons extends Component<IProps> {
     );
   }
   private renderErrorMessage = (message: string) => <span className="error-message">Error: {message}</span>;
-  private renderLatitudeMessage = (lat?: number) => `Latitude: ${lat}`;
+  private renderLatitudeMessage = (lat?: number | null) => `Latitude: ${lat}`;
 }

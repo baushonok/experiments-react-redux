@@ -7,16 +7,15 @@ import Form from 'form';
 import Home from 'home';
 import Navigation from 'navigation';
 import Seasons from 'seasons';
+import { IProps as IState } from 'seasons/types';
 import Transformations from 'transformations';
-
-import { IState } from './types';
 
 import './index.css';
 
 class App extends Component<{}, IState> {
   constructor(props: {}) {
     super(props);
-    this.state = { errorMessage: '' };
+    this.state = { errorMessage: '', lat: null };
     this.initUserGeolocation();
   }
   public render() {
@@ -43,7 +42,7 @@ class App extends Component<{}, IState> {
         this.setState({ lat: position.coords.latitude, errorMessage: '' });
       },
       (err: PositionError) => {
-        this.setState({ lat: undefined, errorMessage: err.message });
+        this.setState({ lat: null, errorMessage: err.message });
       },
     );
   }
