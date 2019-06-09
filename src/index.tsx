@@ -13,11 +13,10 @@ import Transformations from 'transformations';
 import './index.css';
 
 class App extends Component<{}, IState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = { errorMessage: '', lat: null };
-    this.initUserGeolocation();
-  }
+  public readonly state = {
+    errorMessage: '',
+    lat: null,
+  };
   public render() {
     return (
       <Router>
@@ -32,6 +31,9 @@ class App extends Component<{}, IState> {
       </Router>
     );
   }
+  public componentDidMount = () => {
+    this.initUserGeolocation();
+  };
   private getSeasonsComponent = () => {
     const { errorMessage, lat } = this.state;
     return <Seasons errorMessage={errorMessage} lat={lat} />;
