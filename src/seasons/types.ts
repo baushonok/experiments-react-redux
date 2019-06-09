@@ -1,4 +1,9 @@
 export interface IProps {
-  lat: number | null;
+  season: Season | null;
   errorMessage: string;
+}
+
+export enum Season {
+  WINTER = 'winter',
+  SUMMER = 'summer',
 }

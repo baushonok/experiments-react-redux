@@ -7,7 +7,7 @@ import Form from 'form';
 import Home from 'home';
 import Navigation from 'navigation';
 import Seasons from 'seasons';
-import { IProps as IState } from 'seasons/types';
+import { IProps as IState, Season } from 'seasons/types';
 import Transformations from 'transformations';
 
 import './index.css';
@@ -15,7 +15,7 @@ import './index.css';
 class App extends Component<{}, IState> {
   public readonly state = {
     errorMessage: '',
-    lat: null,
+    season: null,
   };
   public render() {
     return (
@@ -35,19 +35,25 @@ class App extends Component<{}, IState> {
     this.initUserGeolocation();
   };
   private getSeasonsComponent = () => {
-    const { errorMessage, lat } = this.state;
-    return <Seasons errorMessage={errorMessage} lat={lat} />;
+    const { errorMessage, season } = this.state;
+    return <Seasons errorMessage={errorMessage} season={season} />;
   };
   private initUserGeolocation() {
     window.navigator.geolocation.getCurrentPosition(
       (position: Position) => {
-        this.setState({ lat: position.coords.latitude, errorMessage: '' });
+        this.setState({ season: this.getSeason(position.coords.latitude, new Date().getMonth()), errorMessage: '' });
       },
       (err: PositionError) => {
-        this.setState({ lat: null, errorMessage: err.message });
+        this.setState({ season: null, errorMessage: err.message });
       },
     );
   }
+  private getSeason = (lat: number, month: number) => {
+    if (month > 2 && month < 9) {
+      return lat > 0 ? Season.SUMMER : Season.WINTER;
+    }
+    return lat > 0 ? Season.WINTER : Season.SUMMER;
+  };
 }
 
 const container = document.getElementById('root');
