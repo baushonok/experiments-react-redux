@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { SEASON_CONFIG } from './constants';
 import { IProps, Season } from './types';
 
 import './index.css';
@@ -16,6 +17,17 @@ export default class Seasons extends Component<IProps> {
     );
   }
   private renderErrorMessage = (message: string) => <span className="error-message">Error: {message}</span>;
-  private renderSeasonMessage = (season: Season | null) =>
-    `Season: ${season === Season.WINTER ? 'Burr, it is chilly' : 'Lets hit the beach!'}`;
+  private renderSeasonMessage = (season: Season | null) => {
+    if (season === null) {
+      return null;
+    }
+    const { iconName, message } = SEASON_CONFIG[season];
+    return (
+      <section>
+        <i className={`${iconName} icon`} />
+        <h1>{message}</h1>
+        <i className={`${iconName} icon`} />
+      </section>
+    );
+  };
 }
