@@ -1,3 +1,39 @@
 .error-message {
     color: red;
 }
+
+.season {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 65px);
+}
+
+.season-summer {
+    background-color: orange;
+}
+
+.season-summer .icon {
+    color: red;
+}
+
+.season-winter {
+    background-color: aliceblue;
+}
+
+.season-winter .icon {
+    color: blue;
+}
+
+.icon-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.icon-right {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

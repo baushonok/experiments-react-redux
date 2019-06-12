@@ -12,3 +12,8 @@ export enum SeasonIcon {
   WINTER = 'snowflake',
   SUMMER = 'sun',
 }
+
+export enum SeasonIconPosition {
+  LEFT = 'left',
+  RIGHT = 'right',
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { SEASON_CONFIG } from './constants';
-import { IProps, Season } from './types';
+import { IProps, Season, SeasonIcon, SeasonIconPosition } from './types';
 
 import './index.css';
 
@@ -10,10 +10,9 @@ export default class Seasons extends Component<IProps> {
     const { errorMessage, season = null } = this.props;
 
     return (
-      <>
-        <h2>Seasons</h2>
-        <div>{errorMessage ? this.renderErrorMessage(errorMessage) : this.renderSeasonMessage(season)}</div>
-      </>
+      <section className={`season season-${season}`}>
+        <span>{errorMessage ? this.renderErrorMessage(errorMessage) : this.renderSeasonMessage(season)}</span>
+      </section>
     );
   }
   private renderErrorMessage = (message: string) => <span className="error-message">Error: {message}</span>;
@@ -23,11 +22,14 @@ export default class Seasons extends Component<IProps> {
     }
     const { iconName, message } = SEASON_CONFIG[season];
     return (
-      <section>
-        <i className={`${iconName} icon`} />
+      <>
+        {this.renderSeasonIcon(iconName, SeasonIconPosition.LEFT)}
         <h1>{message}</h1>
-        <i className={`${iconName} icon`} />
-      </section>
+        {this.renderSeasonIcon(iconName, SeasonIconPosition.RIGHT)}
+      </>
     );
   };
+  private renderSeasonIcon = (iconName: SeasonIcon, position: SeasonIconPosition) => (
+    <i className={`${iconName} icon massive icon-${position}`} />
+  );
 }
