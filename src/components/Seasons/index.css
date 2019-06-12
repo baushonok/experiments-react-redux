@@ -2,10 +2,6 @@
     color: red;
 }
 
-div.ui {
-    max-height: calc(100vh - 60px);
-}
-
 .season {
     position: relative;
     display: flex;

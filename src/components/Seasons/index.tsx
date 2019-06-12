@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Loading } from 'components/Loading';
+
 import { SEASON_CONFIG } from './constants';
 import { IProps, Season, SeasonIcon, SeasonIconPosition } from './types';
 
@@ -22,7 +24,7 @@ export default class Seasons extends Component<IProps> {
       return this.renderSeasonMessage(season);
     }
 
-    return this.renderLoading();
+    return <Loading />;
   };
   private renderErrorMessage = (message: string) => <span className="error-message">Error: {message}</span>;
   private renderSeasonMessage = (season: Season | null) => {
@@ -40,12 +42,5 @@ export default class Seasons extends Component<IProps> {
   };
   private renderSeasonIcon = (iconName: SeasonIcon, position: SeasonIconPosition) => (
     <i className={`${iconName} icon massive icon-${position}`} />
-  );
-  private renderLoading = () => (
-    <div className="ui segment">
-      <div className="ui active dimmer">
-        <span className="ui text loader">Loading</span>
-      </div>
-    </div>
   );
 }
