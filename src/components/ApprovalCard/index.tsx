@@ -1,7 +1,5 @@
 import React, { Component, MouseEvent, ReactNode } from 'react';
 
-import './index.css';
-
 interface IProps {
   children: ReactNode;
   onApprove: (event: MouseEvent<HTMLButtonElement>) => void;
