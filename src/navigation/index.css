@@ -1,5 +1,8 @@
 .navigation {
-    margin-bottom: 24px;
+    overflow-x: auto;
+    width: 100vw;
+    padding-bottom: 4px;
+    margin-bottom: 20px;
 }
 
 ul {
