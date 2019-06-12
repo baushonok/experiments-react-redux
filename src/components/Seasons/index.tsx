@@ -35,7 +35,7 @@ export default class Seasons extends Component<IProps> {
     return (
       <>
         {this.renderSeasonIcon(iconName, SeasonIconPosition.LEFT)}
-        <h1>{message}</h1>
+        <h1 className="ui header">{message}</h1>
         {this.renderSeasonIcon(iconName, SeasonIconPosition.RIGHT)}
       </>
     );
