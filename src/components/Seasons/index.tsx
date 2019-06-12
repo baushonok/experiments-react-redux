@@ -24,7 +24,7 @@ export default class Seasons extends Component<IProps> {
       return this.renderSeasonMessage(season);
     }
 
-    return <Loading />;
+    return <Loading message="Please accept location request" />;
   };
   private renderErrorMessage = (message: string) => <span className="error-message">Error: {message}</span>;
   private renderSeasonMessage = (season: Season | null) => {
