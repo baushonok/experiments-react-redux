@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Seasons from 'components/Seasons';
+import { IProps as IState, Season } from 'components/Seasons/types';
+
 import Comments from 'comments';
 import Form from 'form';
 import Home from 'home';
 import Navigation from 'navigation';
-import Seasons from 'seasons';
-import { IProps as IState, Season } from 'seasons/types';
 import Transformations from 'transformations';
 
 import './index.css';
