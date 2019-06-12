@@ -13,7 +13,13 @@ export default class SearchBar extends Component<IProps, IState> {
         <form className="search-bar ui form">
           <div className="field">
             <label htmlFor="image-search">Image Search</label>
-            <input id="image-search" type="text" value={searchString} onChange={this.handleChangeSearchString} />
+            <input
+              id="image-search"
+              type="text"
+              placeholder="Input some text"
+              value={searchString}
+              onChange={this.handleChangeSearchString}
+            />
           </div>
         </form>
       </div>
