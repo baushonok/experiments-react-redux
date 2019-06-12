@@ -22,6 +22,9 @@ export default function Navigation() {
         <li>
           <Link to="/seasons">Seasons</Link>
         </li>
+        <li>
+          <Link to="/pictures">Pictures</Link>
+        </li>
       </ul>
     </nav>
   );

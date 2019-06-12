@@ -9,6 +9,7 @@ import Comments from 'comments';
 import Form from 'form';
 import Home from 'home';
 import Navigation from 'navigation';
+import Pictures from 'pictures';
 import Transformations from 'transformations';
 
 import './index.css';
@@ -28,6 +29,7 @@ class App extends Component<{}, IState> {
           <Route path="/form" component={Form} />
           <Route path="/comments" component={Comments} />
           <Route path="/seasons" component={this.getSeasonsComponent} />
+          <Route path="/pictures" component={Pictures} />
         </Switch>
       </Router>
     );
