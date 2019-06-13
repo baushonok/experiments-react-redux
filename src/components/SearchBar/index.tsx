@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, Component, FormEvent } from 'react';
 
 import { IProps, IState } from './types';
 
@@ -10,7 +10,7 @@ export default class SearchBar extends Component<IProps, IState> {
     const { searchString } = this.state;
     return (
       <div className="ui segment">
-        <form className="search-bar ui form">
+        <form className="search-bar ui form" onSubmit={this.handleSubmit}>
           <div className="field">
             <label htmlFor="image-search">Image Search</label>
             <input
@@ -19,6 +19,7 @@ export default class SearchBar extends Component<IProps, IState> {
               placeholder="Input some text"
               value={searchString}
               onChange={this.handleChangeSearchString}
+              autoComplete="off"
             />
           </div>
         </form>
@@ -28,6 +29,10 @@ export default class SearchBar extends Component<IProps, IState> {
   private handleChangeSearchString = (event: ChangeEvent<HTMLInputElement>) => {
     const searchString = event.target.value;
     this.setState({ searchString });
+  };
+  private handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const { searchString } = this.state;
     this.props.onInputChange(searchString);
   };
 }
