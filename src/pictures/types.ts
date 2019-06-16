@@ -1,4 +1,4 @@
-export interface IImageList {
+export interface IImage {
   id: string;
   created_at: string;
   width: number;
@@ -10,6 +10,6 @@ export interface IImageList {
   urls: { [key: string]: string };
 }
 export interface IState {
-  images: IImageList[];
+  images: IImage[];
   searchString: string;
 }

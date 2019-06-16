@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { IImage } from 'pictures/types';
 import { IProps } from './types';
 
 import './index.css';
@@ -10,9 +11,9 @@ export default class ImagesList extends Component<IProps> {
   }
   private renderImagesList = () => {
     const { images } = this.props;
-    return images.map(current => (
-      <li key={current.id} className="images-list__item">
-        <img src={current.urls.small} alt={current.description} />
+    return images.map(({ id, urls: { small }, description }: IImage) => (
+      <li key={id} className="images-list__item">
+        <img src={small} alt={description} />
       </li>
     ));
   };

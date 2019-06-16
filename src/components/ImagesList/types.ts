@@ -1,5 +1,5 @@
-import { IImageList } from 'pictures/types';
+import { IImage } from 'pictures/types';
 
 export interface IProps {
-  images: IImageList[];
+  images: IImage[];
 }
