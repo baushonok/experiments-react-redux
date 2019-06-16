@@ -1,3 +1,5 @@
+import { IImageList } from 'pictures/types';
+
 export interface IProps {
-  searchString: string;
+  images: IImageList[];
 }
