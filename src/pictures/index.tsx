@@ -22,13 +22,13 @@ export default class Pictures extends Component<{}, IState> {
     return (
       <div className="ui container">
         <h1 className="ui header">Search for pictures</h1>
-        <SearchBar onInputChange={this.handleInputChange.bind(this)} />
+        <SearchBar onInputChange={this.handleInputChange} />
         {searchString.length ? <span className="ui header">Found {images.length} images</span> : null}
         <ImagesList images={images} />
       </div>
     );
   }
-  private async handleInputChange(searchString: string) {
+  private handleInputChange = async (searchString: string) => {
     const response = await axios.get('https://api.unsplash.com/search/photos', {
       headers: {
         Authorization: `Client-ID ${ACCESS_KEY}`,
@@ -37,5 +37,5 @@ export default class Pictures extends Component<{}, IState> {
     });
 
     this.setState({ images: response.data.results, searchString });
-  }
+  };
 }
