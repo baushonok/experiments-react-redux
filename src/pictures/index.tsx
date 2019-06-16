@@ -1,16 +1,12 @@
-import axios from 'axios';
 import React, { Component } from 'react';
 
+import unsplash from 'api/unsplash';
 import ImagesList from 'components/ImagesList';
 import SearchBar from 'components/SearchBar';
 
 import { IState } from './types';
 
-import KEYS from '../keys';
-
 import './index.css';
-
-const ACCESS_KEY = KEYS.unsplash.accessKey;
 
 export default class Pictures extends Component<{}, IState> {
   public readonly state = {
@@ -29,10 +25,7 @@ export default class Pictures extends Component<{}, IState> {
     );
   }
   private handleInputChange = async (searchString: string) => {
-    const response = await axios.get('https://api.unsplash.com/search/photos', {
-      headers: {
-        Authorization: `Client-ID ${ACCESS_KEY}`,
-      },
+    const response = await unsplash.get('/search/photos', {
       params: { query: searchString },
     });
 
