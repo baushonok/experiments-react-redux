@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import ImagesList from 'components/ImagesList';
 import SearchBar from 'components/SearchBar';
 
-import { IImageList, IState } from './types';
+import { IState } from './types';
 
 import KEYS from '../keys';
 
