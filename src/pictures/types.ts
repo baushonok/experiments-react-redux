@@ -11,4 +11,5 @@ export interface IImageList {
 }
 export interface IState {
   images: IImageList[];
+  searchString: string;
 }

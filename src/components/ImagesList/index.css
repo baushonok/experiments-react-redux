@@ -1,6 +1,7 @@
 .images-list {
     display: flex;
     flex-direction: column;
+    margin-top: 16px;
 }
 
 .images-list__item + .images-list__item {

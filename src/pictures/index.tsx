@@ -15,13 +15,15 @@ const ACCESS_KEY = KEYS.unsplash.accessKey;
 export default class Pictures extends Component<{}, IState> {
   public readonly state = {
     images: [],
+    searchString: '',
   };
   public render() {
-    const { images } = this.state;
+    const { images, searchString } = this.state;
     return (
       <div className="ui container">
         <h1 className="ui header">Search for pictures</h1>
         <SearchBar onInputChange={this.handleInputChange.bind(this)} />
+        {searchString.length ? <span className="ui header">Found {images.length} images</span> : null}
         <ImagesList images={images} />
       </div>
     );
@@ -34,6 +36,6 @@ export default class Pictures extends Component<{}, IState> {
       params: { query: searchString },
     });
 
-    this.setState({ images: response.data.results });
+    this.setState({ images: response.data.results, searchString });
   }
 }
