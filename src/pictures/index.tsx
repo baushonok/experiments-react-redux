@@ -14,12 +14,12 @@ export default class Pictures extends Component<{}, IState> {
     searchString: '',
   };
   public render() {
-    const { images, searchString } = this.state;
+    const { images } = this.state;
     return (
       <div className="ui container">
         <h1 className="ui header">Search for pictures</h1>
         <SearchBar onInputChange={this.handleInputChange} />
-        {searchString.length ? <span className="ui header">Found {images.length} images</span> : null}
+        {this.renderFoundMessage()}
         <ImagesList images={images} />
       </div>
     );
@@ -30,5 +30,9 @@ export default class Pictures extends Component<{}, IState> {
     });
 
     this.setState({ images: response.data.results, searchString });
+  };
+  private renderFoundMessage = () => {
+    const { images, searchString } = this.state;
+    return searchString.length ? <span className="ui header">Found {images.length} images</span> : null;
   };
 }
