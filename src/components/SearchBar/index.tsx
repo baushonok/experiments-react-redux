@@ -10,7 +10,7 @@ export default class SearchBar extends Component<IProps, IState> {
     const { searchString } = this.state;
     return (
       <div className="ui segment">
-        <form className="search-bar ui form" onSubmit={this.handleSubmit}>
+        <form className="search-bar ui form" onSubmit={this.handleInputChange} onBlur={this.handleInputChange}>
           <div className="field">
             <label htmlFor="image-search">Image Search</label>
             <input
@@ -30,7 +30,7 @@ export default class SearchBar extends Component<IProps, IState> {
     const searchString = event.target.value;
     this.setState({ searchString });
   };
-  private handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  private handleInputChange = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { searchString } = this.state;
     this.props.onInputChange(searchString);
