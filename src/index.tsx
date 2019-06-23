@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route } from 'wouter';
 
 import Seasons from 'components/Seasons';
 import { IProps as IState, Season } from 'components/Seasons/types';
@@ -21,17 +21,15 @@ class App extends Component<{}, IState> {
   };
   public render() {
     return (
-      <Router>
+      <>
         <Navigation />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/transformations" component={Transformations} />
-          <Route path="/form" component={Form} />
-          <Route path="/comments" component={Comments} />
-          <Route path="/seasons" component={this.getSeasonsComponent} />
-          <Route path="/pictures" component={Pictures} />
-        </Switch>
-      </Router>
+        <Route path="/" component={Home} />
+        <Route path="/transformations" component={Transformations} />
+        <Route path="/form" component={Form} />
+        <Route path="/comments" component={Comments} />
+        <Route path="/seasons" component={this.getSeasonsComponent} />
+        <Route path="/pictures" component={Pictures} />
+      </>
     );
   }
   public componentDidMount = () => {
