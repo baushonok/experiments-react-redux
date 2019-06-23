@@ -25,6 +25,10 @@ export default class Pictures extends Component<{}, IState> {
     );
   }
   private handleInputChange = async (searchString: string) => {
+    if (this.state.searchString === searchString) {
+      return;
+    }
+
     const response = await unsplash.get('/search/photos', {
       params: { query: searchString },
     });
