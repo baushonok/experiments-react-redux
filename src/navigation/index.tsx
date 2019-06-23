@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'wouter';
+
+import NavLink from 'components/NavLink';
 
 import './index.css';
 
@@ -8,34 +9,22 @@ export default function Navigation() {
     <nav className="navigation">
       <ul>
         <li>
-          <Link to="/">
-            <a href="/">Home</a>
-          </Link>
+          <NavLink href="/">Home</NavLink>
         </li>
         <li>
-          <Link to="/transformations">
-            <a href="/">Transformations</a>
-          </Link>
+          <NavLink href="/transformations">Transformations</NavLink>
         </li>
         <li>
-          <Link to="/form">
-            <a href="/">Form</a>
-          </Link>
+          <NavLink href="/form">Form</NavLink>
         </li>
         <li>
-          <Link to="/comments">
-            <a href="/">Comments</a>
-          </Link>
+          <NavLink href="/comments">Comments</NavLink>
         </li>
         <li>
-          <Link to="/seasons">
-            <a href="/">Seasons</a>
-          </Link>
+          <NavLink href="/seasons">Seasons</NavLink>
         </li>
         <li>
-          <Link to="/pictures">
-            <a href="/">Pictures</a>
-          </Link>
+          <NavLink href="/pictures">Pictures</NavLink>
         </li>
       </ul>
     </nav>
