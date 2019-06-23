@@ -12,6 +12,6 @@ export default class ImagesList extends Component<IProps> {
   }
   private renderImagesList = () => {
     const { images } = this.props;
-    return images.map((image: IImage) => <ImageCard image={image} />);
+    return images.map((image: IImage) => <ImageCard image={image} key={image.id} />);
   };
 }

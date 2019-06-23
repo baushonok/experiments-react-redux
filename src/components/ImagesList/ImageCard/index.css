@@ -1,10 +1,10 @@
 .image-card {
-    grid-row-end: span 2;
+    width: 250px;
     padding: 0;
     margin: 0;
     background: none;
 }
 
 .image-card__image {
-    width: 250px;
+    width: 100%;
 }
