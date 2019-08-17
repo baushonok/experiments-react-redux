@@ -26,6 +26,9 @@ export default function Navigation() {
         <li>
           <NavLink href="/pictures">Pictures</NavLink>
         </li>
+        <li>
+          <NavLink href="/file-tree">File tree</NavLink>
+        </li>
       </ul>
     </nav>
   );

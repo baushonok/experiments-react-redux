@@ -6,6 +6,7 @@ import Seasons from 'components/Seasons';
 import { IProps as IState, Season } from 'components/Seasons/types';
 
 import Comments from 'comments';
+import FileTree from 'file-tree';
 import Form from 'form';
 import Home from 'home';
 import Navigation from 'navigation';
@@ -29,6 +30,7 @@ class App extends Component<{}, IState> {
         <Route path="/comments" component={Comments} />
         <Route path="/seasons" component={this.getSeasonsComponent} />
         <Route path="/pictures" component={Pictures} />
+        <Route path="/file-tree" component={FileTree} />
       </>
     );
   }

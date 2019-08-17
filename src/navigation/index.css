@@ -5,7 +5,7 @@
     margin-bottom: 20px;
 }
 
-ul {
+.navigation ul {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -14,7 +14,7 @@ ul {
     margin: 0;
     list-style-type: none;
 }
-li {
+.navigation li {
     padding: 12px;
     margin: 0 8px;
     background-color: lightgray;

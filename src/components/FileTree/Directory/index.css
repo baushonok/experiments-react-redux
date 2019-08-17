@@ -1,0 +1,14 @@
+.directory {
+    display: block;
+}
+
+.files {
+    display: block;
+    padding: 0;
+    margin-left: 20px;
+    list-style-type: none;
+}
+
+.files.hidden {
+    display: none;
+}

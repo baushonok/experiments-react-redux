@@ -1,0 +1,7 @@
+.file {
+    display: inline-block;
+}
+
+.file.selected {
+    background-color: lightgray;
+}
